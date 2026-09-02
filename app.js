@@ -63,3 +63,48 @@ filterButtons.forEach(button => {
     });
   });
 });
+const testimonials = [
+  {
+    name: "John Doe",
+    role: "CEO",
+    image: "https://i.pravatar.cc/300?img=12",
+    text: "Lorem ipsum dolor sit amet consectetur. In enim cursus odio accumsan. Id leo urna velit neque mattis id tellus arcu condimentum. Augue dictum dolor elementum convallis dignissim malesuada commodo ultrices."
+  },
+  {
+    name: "Anna Smith",
+    role: "Senior QA Engineer",
+    image: "https://i.pravatar.cc/300?img=47",
+    text: "Great experience working together! The attention to detail in web and app testing was top-notch. Highly recommended for any automation project."
+  },
+  {
+    name: "Michael Brown",
+    role: "Product Manager",
+    image: "https://i.pravatar.cc/300?img=33",
+    text: "Outstanding work on API integration testing. All bugs were found and resolved before product release. Exceptional professionalism."
+  },
+  {
+    name: "Sophia Davis",
+    role: "UX Designer",
+    image: "https://i.pravatar.cc/300?img=5",
+    text: "Seamless collaboration and amazing communication. The tests delivered were clean, efficient, and well-documented."
+  }
+];
+const imgElement = document.getElementById('testimonial-img');
+const textElement = document.getElementById('testimonial-text');
+const nameElement = document.getElementById('testimonial-name');
+const roleElement = document.getElementById('testimonial-role');
+const dots = document.querySelectorAll('.dot');
+function updateSlide(index) {
+  imgElement.src = testimonials[index].image;
+  textElement.textContent = testimonials[index].text;
+  nameElement.textContent = testimonials[index].name;
+  roleElement.textContent = testimonials[index].role;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+dots.forEach(dot => {
+  dot.addEventListener('click', (e) => {
+    const slideIndex = e.target.getAttribute('data-index');
+    updateSlide(slideIndex);
+  });
+});
