@@ -330,4 +330,78 @@ cursor: pointer;
     color: #333333;
     line-height: 1.5;
     margin: 0;
+} 
+.projects-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.projects-p {
+  color: #a0a0a0;
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.filter-menu {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.filter-btn.active {
+  background-color: #fd6f00;
+  color: #ffffff;
+}
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 ტოლი სვეტი */
+  gap: 25px;
+}
+.project-item {
+  text-align: left;
+}
+.image-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 380px;
+  margin-bottom: 12px;
+}
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-category 
+{
+  color: #fd6f00;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 6px;
+}
+.project-title 
+{
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
 }
