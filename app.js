@@ -108,3 +108,56 @@ dots.forEach(dot => {
     updateSlide(slideIndex);
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contactForm");
+  const successModal = document.getElementById("successModal");
+  const closeModal = document.getElementById("closeModal");
+  const modalOkBtn = document.getElementById("modalOkBtn");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        website: document.getElementById("website").value.trim(),
+        message: document.getElementById("message").value.trim(),
+      };
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+          contactForm.reset();
+          if (successModal) {
+            successModal.style.display = "flex";
+          }
+        } else {
+          alert("შეცდომა! მონაცემები ვერ გაიგზავნა.");
+        }
+      } catch (error) {
+        console.error("Error sending data:", error);
+        alert("დაფიქსირდა შეცდომა ქსელში.");
+      }
+    });
+  }
+  if (closeModal) {
+    closeModal.addEventListener("click", () => {
+      successModal.style.display = "none";
+    });
+  }
+  if (modalOkBtn) {
+    modalOkBtn.addEventListener("click", () => {
+      successModal.style.display = "none";
+    });
+  }
+  window.addEventListener("click", (e) => {
+    if (e.target === successModal) {
+      successModal.style.display = "none";
+    }
+  });
+});
